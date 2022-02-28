@@ -1,0 +1,61 @@
+.contactUsContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.contactInputWrapper > input, .contactInputWrapper > textarea {
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 5px;
+    width: 100%;
+}
+
+.sendFormBtn {
+    outline: none;
+    border-radius:5px;
+    border: 1px solid #984351;
+    background-color: #fff;
+    padding: 10px 10px;
+    color: #984351;
+    margin-top: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sendFormBtn:hover {
+    background-color: #af4e5b;
+    cursor: pointer;
+    color: #fff;
+    transition: .5s;
+}
+
+
+.contactUsTitle {
+    margin: 30px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.formSent {
+    color: green;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.contactLogo  {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.calandhaInfo {
+    text-align: center;
+    margin: 40px auto 0;
+}

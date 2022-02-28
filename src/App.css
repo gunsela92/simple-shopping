@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+* {
+    font-family: Inter;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("./assets/fonts/Inter/Inter-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: InterItalic;
+    src: url("./assets/fonts/Inter/Inter-Italic.otf") format("opentype");
+}

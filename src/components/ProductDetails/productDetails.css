@@ -1,0 +1,83 @@
+.productInfoWrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.productDetailsWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    margin-left:50px;
+}
+
+.productName {
+    font-size: 20px;
+}
+
+.productPrice {
+    font-size: 16px;
+    font-family:InterItalic;
+}
+
+.productInfoImage {
+    height: 100%;
+    width: 100%;
+    max-width: 460px;
+    object-fit: contain;
+}
+
+@media (max-width:700px) {
+    .productInfoWrapper {
+        flex-direction: column;
+    }
+    .productDetailsWrapper {
+        align-items: center;
+        padding: 0;
+        margin-left:0;
+    }
+    .productInfoImage {
+        max-height: 300px;
+        margin: 0 auto;
+    }
+}
+
+.productDetailsWrapper > span, .productDetailsWrapper > div {
+    margin: 20px 0;
+}
+
+.addToCardBtn {
+    outline: none;
+    border-radius:5px;
+    border: 1px solid #984351;
+    background-color: #fff;
+    padding: 10px 10px;
+    color: #984351;
+    margin-top: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.addToCardBtn:hover {
+    background-color: #af4e5b;
+    cursor: pointer;
+    color: #fff;
+    transition: .5s;
+}
+
+.sizePicker {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    border-color: #b0b0b0;
+}
+
+.shareIcons > img {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
