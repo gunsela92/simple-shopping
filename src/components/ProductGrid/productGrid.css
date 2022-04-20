@@ -8,6 +8,7 @@
     max-height: 480px;
     max-width: 320px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .product-grid-image:hover {

@@ -39,7 +39,7 @@ const CartScreen = () => {
                       className="cardPage-productSize">Beden : {product?.size}</span></div>
                   <div>{product?.price} ₺</div>
                   <FontAwesomeIcon icon={faTrashAlt} className="cartPage-deleteProduct"
-                                   onClick={() => deleteProduct(product?.cartId)}/>
+                                   onClick={() => deleteProduct(product)}/>
                 </div>
             ))}
           </div>

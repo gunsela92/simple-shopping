@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
-import "./header.css";
+import React, {useEffect, useRef, useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {faTimes, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
 import {removeProductFromCart} from "../../redux/actions/cartActions";
 import {useLocation, useNavigate} from "react-router-dom";
+import "./header.css";
 
 const Header = () => {
+  const ref = useRef();
   const [cartOpen, setCartOpen] = useState(false);
   const cart = useSelector((state) => state?.cart?.PRODUCTS);
   const dispatch = useDispatch();
@@ -22,6 +23,19 @@ const Header = () => {
     setCartOpen(false);
     navigate("/cart")
   }
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setCartOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
 
   return (
       <div>
@@ -39,7 +53,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className={cartOpen ? "cartContainer open" : "cartContainer close"}>
+        <div className={cartOpen ? "cartContainer open" : "cartContainer close"} ref={ref}>
           {cartOpen && (
               <div>
                 <span className="cartTitle">Sepetim</span>

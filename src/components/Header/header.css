@@ -33,15 +33,16 @@
 }
 
 .header-cart-icon {
-    float: right;
-    position: relative;
-    top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     padding: 5px;
+    margin-left: 10px;
     color: #984351;
 }
 
 .header-cart-icon:hover {
-    color: #b65d6c;
+    color: #cb697a;
     cursor: pointer;
 }
 
@@ -88,6 +89,7 @@
 .close {
     height: 0;
     transition: .5s;
+    box-shadow: none;
 }
 
 .cartImage {
@@ -120,7 +122,7 @@
 
 .cartProductsList {
     display: grid;
-    grid-template-columns: 30px 1fr 1fr 1fr 20px;
+    grid-template-columns: 50px 120px 1fr 1fr 10px;
     grid-gap: 10px;
     padding: 5px;
     align-items: center;
@@ -131,7 +133,8 @@
 .titles {
     grid-template-columns: 15px 47px 51px 50px;
     justify-content: center;
-    grid-template-areas: "."
+    grid-template-areas: ".";
+    grid-gap: 50px;
 }
 
 .cartProductDetails {
@@ -172,9 +175,9 @@
     height: 10px;
     text-align: center;
     position: relative;
-    left: 13px;
+    left: -5px;
     line-height: 8px;
-    bottom: 25px;
+    bottom: 9px;
     padding: 1px;
 }
 
@@ -212,7 +215,9 @@
 }
 
 .header-right {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 @media screen and (max-width: 650px) {
@@ -223,7 +228,7 @@
     }
 
     .header-right {
-        float: none;
+        justify-content: center;
     }
 }
 
