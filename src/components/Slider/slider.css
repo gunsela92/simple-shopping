@@ -21,3 +21,30 @@
     height: 100%;
     object-fit: cover;
 }
+
+.swiper-button-next, .swiper-button-prev {
+    color: #984351;
+}
+
+.swiper-pagination-bullet-active {
+    background: #984351;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 20px;
+}
+
+@media (max-width:768px) {
+    .swiper-button-next {
+        right: 5px;
+    }
+    .swiper-button-next:after {
+        font-size: 14px;
+    }
+    .swiper-button-prev {
+        left: 5px;
+    }
+    .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}

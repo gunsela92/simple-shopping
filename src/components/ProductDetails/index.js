@@ -55,7 +55,7 @@ const ProductInformation = ({ product }) => {
             <img src={WhatsappIcon} alt="socialImg" />
           </div>
           <button className="addToCardBtn" onClick={addProduct}>
-            <FontAwesomeIcon icon={faShoppingBag} />
+            <FontAwesomeIcon icon={faShoppingBag} className="addToCartIcon" />
             SEPETE EKLE
           </button>
         </div>

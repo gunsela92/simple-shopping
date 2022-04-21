@@ -5,7 +5,6 @@ import {useDispatch} from "react-redux";
 import {addProductToCart} from "../../redux/actions/cartActions";
 import Modal from "../Modal";
 import {useNavigate} from "react-router-dom";
-import Slider from "../Slider";
 
 const ProductGrid = () => {
   const dispatch = useDispatch();
@@ -47,7 +46,6 @@ const ProductGrid = () => {
 
   return (
       <>
-        <Slider />
         <div className="product-grid-container">
           {products?.map(e => (
               <div key={e?.id} className="product">

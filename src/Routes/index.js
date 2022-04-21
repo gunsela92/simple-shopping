@@ -1,10 +1,10 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import ProductGrid from "../components/ProductGrid";
 import ProductDetails from "../pages/ProductDetails";
 import Header from "../components/Header";
 import AboutUs from "../pages/About";
 import Contact from "../pages/Contact";
 import Cart from "../pages/Cart";
+import HomePage from "../pages/HomePage";
 
 const Routing = () => {
 
@@ -12,7 +12,7 @@ const Routing = () => {
         <BrowserRouter>
           <Header/>
           <Routes>
-            <Route path="/" element={<ProductGrid />}/>
+            <Route path="/" element={<HomePage />}/>
             <Route path="/product/:id" element={<ProductDetails/>} />
             <Route path="/about" element={<AboutUs/>} />
             <Route path="/contact" element={<Contact/>} />

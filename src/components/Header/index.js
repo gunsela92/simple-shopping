@@ -1,94 +1,65 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
-import {useDispatch, useSelector} from "react-redux";
-import {faTimes, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
-import {removeProductFromCart} from "../../redux/actions/cartActions";
+import {faShoppingCart, faBars, faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import {useSelector} from "react-redux";
 import {useLocation, useNavigate} from "react-router-dom";
 import "./header.css";
+import Hoc from "../HOC";
+import CartModal from "./cart";
 
-const Header = () => {
-  const ref = useRef();
+const Header = ({isMobile}) => {
   const [cartOpen, setCartOpen] = useState(false);
   const cart = useSelector((state) => state?.cart?.PRODUCTS);
-  const dispatch = useDispatch();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const {pathname} = useLocation();
   const navigate = useNavigate();
 
-  const removeProduct = (product) => {
-    dispatch(removeProductFromCart(product))
-  }
-
-  const gotoCart = () => {
+  const closeCartModal = () => {
     setCartOpen(false);
-    navigate("/cart")
-  }
-
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setCartOpen(false);
-    }
   };
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  }, []);
+  const navigateToRoute = (route) => {
+    navigate(route);
+    setMobileMenuOpen(false);
+  };
 
   return (
-      <div>
+      <>
         <div className="header">
-          <span onClick={() => navigate("/")} className="header-logo"/>
-          <div className="header-right">
-            <span className={`${pathname === "/" ? "active" : ''}`} onClick={() => navigate("/")}>Ana Sayfa</span>
-            <span className={`${pathname?.includes("about") ? "active" : ''}`} onClick={() => navigate("/about")}>Hakkımızda</span>
-            <span className={`${pathname?.includes("contact") ? "active" : ''}`} onClick={() => navigate("/contact")}>İletişim</span>
+          {isMobile && (
+            <FontAwesomeIcon icon={mobileMenuOpen ? faArrowRight : faBars} className="mobileMenuIcon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}/>
+          )}
+          <span onClick={() => navigateToRoute("/")} className="header-logo"/>
+          {!isMobile && (
+            <div className="header-right">
+              <span className={`${pathname === "/" ? "active" : ''}`} onClick={() => navigateToRoute("/")}>Ana Sayfa</span>
+              <span className={`${pathname?.includes("about") ? "active" : ''}`} onClick={() => navigateToRoute("/about")}>Hakkımızda</span>
+              <span className={`${pathname?.includes("contact") ? "active" : ''}`} onClick={() => navigateToRoute("/contact")}>İletişim</span>
+              <div className="header-cart-icon" onClick={() => setCartOpen(!cartOpen)}>
+                <FontAwesomeIcon icon={faShoppingCart}/>
+                {cart?.length > 0 && (
+                  <div className="cartLength">{cart?.length}</div>
+                )}
+              </div>
+            </div>
+          )}
+          {isMobile && (
             <div className="header-cart-icon" onClick={() => setCartOpen(!cartOpen)}>
               <FontAwesomeIcon icon={faShoppingCart}/>
               {cart?.length > 0 && (
-                  <div className="cartLength">{cart?.length}</div>
+                <div className="cartLength">{cart?.length}</div>
               )}
             </div>
+          )}
+          <div className={`mobileMenuWrapper ${mobileMenuOpen ? "mobileMenuActive" : ""}`}>
+                <span className={`${pathname === "/" ? "active" : ''}`} onClick={() => navigateToRoute("/")}>Ana Sayfa</span>
+                <span className={`${pathname?.includes("about") ? "active" : ''}`} onClick={() => navigateToRoute("/about")}>Hakkımızda</span>
+                <span className={`${pathname?.includes("contact") ? "active" : ''}`} onClick={() => navigateToRoute("/contact")}>İletişim</span>
           </div>
         </div>
-        <div className={cartOpen ? "cartContainer open" : "cartContainer close"} ref={ref}>
-          {cartOpen && (
-              <div>
-                <span className="cartTitle">Sepetim</span>
-                <div className="cartProductsList titles">
-                  <span/>
-                  <span>Ürün</span>
-                  <span>Beden</span>
-                  <span>Fiyat</span>
-                </div>
-                <div className="cartInner">
-                  {cart?.length > 0 && cart?.map(product => (
-                      <div className="cartProductsList">
-                        <img className="cartImage" src={product?.img} alt={"cartImage"}/>
-                        <span className="cartProductDetails">{product?.productName}</span>
-                        <span className="cartProductDetails">{product?.size}</span>
-                        <span className="cartProductDetails">{product?.price} ₺</span>
-                        <FontAwesomeIcon icon={faTimes} className="removeFromCart"
-                                         onClick={() => removeProduct(product)}/>
-                      </div>
-                  ))}
-                  {cart?.length === 0 && (
-                      <div className="noProductsInCart">
-                        <FontAwesomeIcon icon={faExclamationTriangle} className="noProductsInCartIcon" />
-                        Sepetinizde ürün bulunmuyor.
-                      </div>
-                  )}
-                  <button className="gotoCartBtn" onClick={gotoCart}>
-                    SEPETE GİT
-                  </button>
-                </div>
-              </div>
-          )}
-        </div>
-      </div>
+        <CartModal cartOpen={cartOpen} close={closeCartModal} />
+      </>
   );
 };
 
-export default Header;
+export default Hoc(Header);

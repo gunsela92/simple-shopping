@@ -42,7 +42,16 @@
     }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 768px) {
+    .product-grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 220px);
+        grid-column-gap: 10px;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
     .product-grid-container {
         display: grid;
         grid-template-columns: repeat(1, 320px);
@@ -92,4 +101,14 @@
 
 .sizePicker {
     margin-left: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .product-grid-image {
+        max-height: 320px;
+        max-width: 320px;
+    }
+    .addToCardBtn {
+        max-width: 200px;
+    }
 }
