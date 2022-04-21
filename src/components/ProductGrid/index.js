@@ -53,7 +53,7 @@ const ProductGrid = () => {
                   <img src={e?.img} className="product-grid-image" alt="productImg"
                        onClick={() => navigate("/product/" + e?.id)}/>
                 </div>
-                <span className="productName">{e?.productName}</span>
+                <span className="productgridName">{e?.productName}</span>
                 <div>
                   {e?.oldPrice && (
                       <span className="old-price">{e?.oldPrice} ₺</span>

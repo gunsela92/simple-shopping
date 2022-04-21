@@ -72,8 +72,9 @@
     overflow: hidden;
 }
 
-.productName {
+.product .productgridName {
     margin: 10px 0;
+    font-size: 1rem;
 }
 
 .old-price {

@@ -5,6 +5,7 @@ import AboutUs from "../pages/About";
 import Contact from "../pages/Contact";
 import Cart from "../pages/Cart";
 import HomePage from "../pages/HomePage";
+import Footer from "../components/Footer";
 
 const Routing = () => {
 
@@ -18,6 +19,7 @@ const Routing = () => {
             <Route path="/contact" element={<Contact/>} />
             <Route path="/cart" element={<Cart/>} />
           </Routes>
+          <Footer />
         </BrowserRouter>
   )
 }
