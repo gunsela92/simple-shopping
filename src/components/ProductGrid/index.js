@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
 import Modal from "../Modal";
 import {useNavigate} from "react-router-dom";
+import {sendMessage} from "../Notifications";
 
 const ProductGrid = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const ProductGrid = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [hoveredItemIndex, setHoveredItemIndex] = useState(null);
   const navigate = useNavigate();
+
 
   const showProductDetails = (product) => {
     try {
@@ -36,6 +38,10 @@ const ProductGrid = () => {
       }
       dispatch(addProductToCart(productInfo));
       setShowProductModal(false);
+      sendMessage({
+        title: "Ürün sepete eklendi !",
+        type: "success"
+      });
     } catch (e) {
       return e;
     }
@@ -53,12 +59,10 @@ const ProductGrid = () => {
           {products?.map(e => (
               <div key={e?.id} className="product">
                 <div className={`product-image-wrapper ${hoveredItemIndex === e?.id ? 'hovered' : ''}`} onMouseEnter={() => setHoveredItemIndex(e?.id)} onMouseLeave={() => setHoveredItemIndex(null)}>
-                  <div className={`product-image-overlay ${hoveredItemIndex === e?.id ? 'visible' : ''}`}>
-                    <button onClick={() => navigate("/product/" + e?.id)} className="addToCardBtn">
+                    <button onClick={() => navigate("/product/" + e?.id)} className={`addToCardBtnView ${hoveredItemIndex === e?.id ? 'visibleButton' : ''}`}>
                       <FontAwesomeIcon icon={faEye} className="eyeIcon"/>
                       İNCELE
                     </button>
-                  </div>
                   <img src={e?.img} className="product-grid-image" alt="productImg"/>
                 </div>
                 <span className="productgridName">{e?.productName}</span>

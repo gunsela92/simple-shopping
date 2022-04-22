@@ -6,11 +6,13 @@ import Contact from "../pages/Contact";
 import Cart from "../pages/Cart";
 import HomePage from "../pages/HomePage";
 import Footer from "../components/Footer";
+import Alerts from "../components/Notifications";
 
 const Routing = () => {
 
   return (
         <BrowserRouter>
+          <Alerts />
           <Header/>
           <Routes>
             <Route path="/" element={<HomePage />}/>

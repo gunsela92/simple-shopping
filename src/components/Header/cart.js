@@ -4,6 +4,7 @@ import {faExclamationTriangle, faTimes} from "@fortawesome/free-solid-svg-icons"
 import {removeProductFromCart} from "../../redux/actions/cartActions";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import {sendMessage} from "../Notifications";
 
 const CartModal = ({cartOpen, close}) => {
   const ref = useRef();
@@ -13,6 +14,10 @@ const CartModal = ({cartOpen, close}) => {
 
   const removeProduct = (product) => {
     dispatch(removeProductFromCart(product))
+    sendMessage({
+      title: "Ürün sepetinizden çıkarıldı !",
+      type: "success"
+    });
   }
 
   const gotoCart = () => {

@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrashAlt, faSadTear} from '@fortawesome/free-solid-svg-icons'
 import {removeProductFromCart} from "../../redux/actions/cartActions";
 import {useNavigate} from "react-router-dom";
+import {sendMessage} from "../Notifications";
 
 const CartScreen = () => {
   const cart = useSelector((state) => state?.cart?.PRODUCTS);
@@ -26,6 +27,10 @@ const CartScreen = () => {
 
   const deleteProduct = (product) => {
     dispatch(removeProductFromCart(product));
+    sendMessage({
+      title: "Ürün sepetinizden çıkarıldı !",
+      type: "success"
+    });
   }
 
   return (
