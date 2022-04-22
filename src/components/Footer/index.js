@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          © {new Date().getFullYear()} Calandha. All rights reserved.
+          © {new Date().getFullYear()} Calandha. Tüm hakları saklıdır.
         </div>
       </div>
   );
