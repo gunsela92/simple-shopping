@@ -3,19 +3,19 @@ import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./notifications.css";
 
-export const sendMessage = (notif) => {
+export const sendMessage = ({type, title, description}) => {
   const notificationTypes = ["info", "success", "warning", "error"];
-  if (!notif?.type && !notificationTypes.includes(notif?.type)) {
-    notif.type = "info"
+  if (type && !notificationTypes.includes(type)) {
+    type = "info"
   }
-  displayMsg(notif);
+  displayMsg({type, title, description});
 };
 
-const displayMsg = (notif) => {
-  toast[notif?.type](<div>
-    <span className="notifTitle">{notif?.title}</span>
-    {notif?.description && (
-        <span className="notifDesc">{notif?.description}</span>
+const displayMsg = ({type, title, description}) => {
+  toast[type](<div>
+    <span className="notifTitle">{title}</span>
+    {description && (
+        <span className="notifDesc">{description}</span>
     )}
   </div>)
 }
