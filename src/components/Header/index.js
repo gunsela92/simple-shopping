@@ -14,6 +14,8 @@ const Header = ({isMobile}) => {
   const {pathname} = useLocation();
   const navigate = useNavigate();
 
+  console.log(cart)
+
   const closeCartModal = () => {
     setCartOpen(false);
   };

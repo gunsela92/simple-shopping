@@ -6,16 +6,34 @@ const initialState = {
 
 const CartReducer = (state = initialState, action) => {
   switch (action?.type) {
-    case ADD_TO_CART:
+    case ADD_TO_CART: {
+      const isFound = state.PRODUCTS.findIndex(product => product?.id === action.payload?.id);
+      if (isFound !== -1) {
+        state.PRODUCTS[isFound].quantity += 1;
+        return {
+          ...state
+        }
+      } else {
+        action.payload.quantity = 1;
+        return {
+          ...state,
+          PRODUCTS: [...state.PRODUCTS, action.payload]
+        }
+      }
+    }
+    case REMOVE_FROM_CART: {
+      const productIndex = state.PRODUCTS.findIndex(product => product?.id === action?.payload?.id,);
+      if (productIndex !== -1 && state.PRODUCTS[productIndex]?.quantity > 1) {
+        state.PRODUCTS[productIndex].quantity -= 1;
+        return {
+          ...state
+        }
+      }
       return {
         ...state,
-        PRODUCTS: [...state?.PRODUCTS, action?.payload]
+        PRODUCTS: state.PRODUCTS.filter(product => product?.id !== action.payload?.id)
       }
-    case REMOVE_FROM_CART:
-        return {
-        ...state,
-          PRODUCTS: state?.PRODUCTS?.filter(e => e?.cartId !== action?.payload?.cartId)
-        }
+    }
     default:
       return state;
   }

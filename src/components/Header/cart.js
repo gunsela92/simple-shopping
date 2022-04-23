@@ -51,7 +51,7 @@ const CartModal = ({cartOpen, close}) => {
           </div>
           <div className="cartInner">
             {cart?.length > 0 && cart?.map(product => (
-              <div className="cartProductsList">
+              <div key={product?.id} className="cartProductsList">
                 <img className="cartImage" src={product?.img} alt={"cartImage"}/>
                 <span className="cartProductDetails">{product?.productName}</span>
                 <span className="cartProductDetails">{product?.size}</span>

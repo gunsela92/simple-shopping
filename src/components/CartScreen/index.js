@@ -14,11 +14,10 @@ const CartScreen = () => {
   const navigate = useNavigate();
 
   const calculateCartTotal = () => {
-    let prices = 0
-    cart?.forEach(e => {
-      prices += parseInt(e?.price)
-    })
-    setCartTotal(prices)
+    const cartTotal = cart.reduce((total, product) => {
+      return total + parseInt(product.price);
+    }, 0);
+    setCartTotal(cartTotal)
   }
 
   useEffect(() => {

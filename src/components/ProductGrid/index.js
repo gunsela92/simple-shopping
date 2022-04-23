@@ -82,8 +82,8 @@ const ProductGrid = () => {
               Lütfen beden seçiniz :
               <select className="sizePicker" onChange={(e) => selectSize(e)}>
                 <option value={-1}>Seçiniz</option>
-                {selectedProduct?.sizes?.map(e => (
-                    <option value={e}>{e}</option>
+                {selectedProduct?.sizes?.map((e, index) => (
+                    <option key={index} value={e}>{e}</option>
                 ))}
               </select>
             </Modal>
