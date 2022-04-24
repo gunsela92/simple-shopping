@@ -3,7 +3,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-      <div className="footerWrapper">
+      <footer className="footerWrapper">
         <div className="footer-top">
           <div className="footer-item-wrapper">
             <h3 className="footer-titles">İLETİŞİM</h3>
@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="footer-bottom">
           © {new Date().getFullYear()} Calandha. Tüm hakları saklıdır.
         </div>
-      </div>
+      </footer>
   );
 };
 
