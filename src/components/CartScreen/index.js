@@ -15,9 +15,7 @@ const CartScreen = () => {
   const navigate = useNavigate()
 
   const calculateCartTotal = () => {
-    const cartTotal = cart.reduce((total, product) => {
-      return total + parseInt(product.price);
-    }, 0);
+    const cartTotal = cart.reduce((total, product) => total + product?.price * product?.quantity, 0);
     setCartTotal(cartTotal)
   }
 
