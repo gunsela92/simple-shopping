@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import "swiper/css";
@@ -16,22 +16,22 @@ const Slider = () => {
   ]
 
   return (
-      <Swiper
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          loop={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className="mySwiper"
-      >
-        {swiperData.map(item => (
-            <SwiperSlide key={item.id}>
-              <img src={item.image} alt="Product" />
-            </SwiperSlide>
-        ))}
-      </Swiper>
+    <Swiper
+      cssMode={true}
+      navigation={true}
+      pagination={true}
+      mousewheel={true}
+      keyboard={true}
+      loop={true}
+      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+      className="mySwiper"
+    >
+      {swiperData.map(item => (
+        <SwiperSlide key={item.id}>
+          <img src={item.image} alt="Product" />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 

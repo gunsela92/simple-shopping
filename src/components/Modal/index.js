@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import "./modal.css";
 
 const Modal = ({ open, close, title, size, saveFunc, children}) => {
@@ -14,22 +14,22 @@ const Modal = ({ open, close, title, size, saveFunc, children}) => {
   }
 
   return (
-      <div className="modalBackdrop" hidden={!open}>
-        <div className={`modalContainer ${size}`} hidden={!open}>
-          <div className="modalTitle">
-            {title}
-            <div className="modalCloseWrapper" onClick={() => close()}>
-              <FontAwesomeIcon icon={faTimes} className="modal-Close-Icon"/>
-            </div>
-          </div>
-          <div className="modalInner">
-            {children}
-            <button className="modalBtn" onClick={saveModal}>
-              ONAYLA
-            </button>
+    <div className="modalBackdrop" hidden={!open}>
+      <div className={`modalContainer ${size}`} hidden={!open}>
+        <div className="modalTitle">
+          {title}
+          <div className="modalCloseWrapper" onClick={() => close()}>
+            <FontAwesomeIcon icon={faTimes} className="modal-Close-Icon"/>
           </div>
         </div>
+        <div className="modalInner">
+          {children}
+          <button className="modalBtn" onClick={saveModal}>
+              ONAYLA
+          </button>
+        </div>
       </div>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import { products } from "../components/ProductGrid/products";
 import ProductInformation from "../components/ProductDetails";
@@ -17,7 +17,7 @@ const ProductDetails = () => {
 
 
   return (
-      <ProductInformation product={selectedProduct}/>
+    <ProductInformation product={selectedProduct}/>
   );
 };
 

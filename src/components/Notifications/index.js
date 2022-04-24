@@ -1,6 +1,6 @@
-import React from 'react';
-import {toast, ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./notifications.css";
 
 export const sendMessage = ({type, title, description}) => {
@@ -15,7 +15,7 @@ const displayMsg = ({type, title, description}) => {
   toast[type](<div>
     <span className="notifTitle">{title}</span>
     {description && (
-        <span className="notifDesc">{description}</span>
+      <span className="notifDesc">{description}</span>
     )}
   </div>)
 }
@@ -23,17 +23,17 @@ const displayMsg = ({type, title, description}) => {
 const Alerts = () => {
 
   return (
-      <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss={false}
-          pauseOnHover
-          colored
-      />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick={false}
+      rtl={false}
+      pauseOnFocusLoss={false}
+      pauseOnHover
+      colored
+    />
   )
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faExclamationTriangle, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {removeProductFromCart} from "../../redux/actions/cartActions";
@@ -51,13 +51,13 @@ const CartModal = ({cartOpen, close}) => {
           </div>
           <div className="cartInner">
             {cart?.length > 0 && cart?.map(product => (
-              <div key={product?.id} className="cartProductsList">
+              <div key={product?.cartId} className="cartProductsList">
                 <img className="cartImage" src={product?.img} alt={"cartImage"}/>
                 <span className="cartProductDetails">{product?.productName}</span>
                 <span className="cartProductDetails">{product?.size}</span>
                 <span className="cartProductDetails">{product?.price} ₺</span>
                 <FontAwesomeIcon icon={faTimes} className="removeFromCart"
-                                 onClick={() => removeProduct(product)}/>
+                  onClick={() => removeProduct(product)}/>
               </div>
             ))}
             {cart?.length === 0 && (

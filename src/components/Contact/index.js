@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import "./contact.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
@@ -19,36 +19,36 @@ const ContactUs = () => {
   }
 
   return (
-      <>
-        <div className="contactUsTitle">
+    <>
+      <div className="contactUsTitle">
           Bize ulaşmak için aşağıdaki formu doldurabilirsiniz.
+      </div>
+      <form className="contactUsContainer" onSubmit={sendForm}>
+        <div className="contactInputWrapper">
+          <p>Adınız Soyadınız</p>
+          <input type="text" required onChange={(e) => setUsername(e?.target?.value)} value={username} />
         </div>
-        <form className="contactUsContainer" onSubmit={sendForm}>
-          <div className="contactInputWrapper">
-            <p>Adınız Soyadınız</p>
-            <input type="text" required onChange={(e) => setUsername(e?.target?.value)} value={username} />
-          </div>
-          <div className="contactInputWrapper">
-            <p>E-posta</p>
-            <input type="email" required onChange={(e) => setUserMail(e?.target?.value)} value={userMail} />
-          </div>
-          <div className="contactInputWrapper">
-            <p>Mesajınız</p>
-            <textarea rows="4" cols="40" required onChange={(e) => setUserMessage(e?.target?.value)} value={userMessage} />
-          </div>
-          <button className="sendFormBtn" type="submit">
-            <FontAwesomeIcon icon={faPaperPlane} />
+        <div className="contactInputWrapper">
+          <p>E-posta</p>
+          <input type="email" required onChange={(e) => setUserMail(e?.target?.value)} value={userMail} />
+        </div>
+        <div className="contactInputWrapper">
+          <p>Mesajınız</p>
+          <textarea rows="4" cols="40" required onChange={(e) => setUserMessage(e?.target?.value)} value={userMessage} />
+        </div>
+        <button className="sendFormBtn" type="submit">
+          <FontAwesomeIcon icon={faPaperPlane} />
             GÖNDER
-          </button>
-        </form>
-        {isFormSent && <div className="formSent">
+        </button>
+      </form>
+      {isFormSent && <div className="formSent">
           Formunuz iletildi. Teşekkür ederiz.
-        </div>}
-        <div className="calandhaInfo">
+      </div>}
+      <div className="calandhaInfo">
           info@calandha.com <br/><br/>Tel / Whatsapp : +90 (552) 807 35 51
-        </div>
-        <img src={CalandhaLogo} className="contactLogo" alt="contactLogo" />
-      </>
+      </div>
+      <img src={CalandhaLogo} className="contactLogo" alt="contactLogo" />
+    </>
   );
 };
 

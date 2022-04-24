@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import React, {useState} from "react";
+import PropTypes from "prop-types";
 import "./productDetails.css";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faShoppingBag} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faShoppingBag} from "@fortawesome/free-solid-svg-icons"
 import FacebookIcon from "../../assets/icons/icons8-facebook.svg";
 import TwitterIcon from "../../assets/icons/icons8-twitter.svg";
 import InstagramIcon from "../../assets/icons/icons8-instagram.svg";
@@ -34,32 +34,32 @@ const ProductInformation = ({ product }) => {
   }
 
   return (
-      <div className="productInfoWrapper">
-        <img className="productInfoImage" src={product?.img} alt="productImg"/>
-        <div className="productDetailsWrapper">
-          <span className="productName"><strong>{product?.productName}</strong></span>
-          <span className="productPrice">{product?.price} ₺</span>
-          <div>
+    <div className="productInfoWrapper">
+      <img className="productInfoImage" src={product?.img} alt="productImg"/>
+      <div className="productDetailsWrapper">
+        <span className="productName"><strong>{product?.productName}</strong></span>
+        <span className="productPrice">{product?.price} ₺</span>
+        <div>
             Beden :
-            <select className="sizePicker" onChange={(e) => selectSize(e?.target?.value)}>
-              <option value={-1}>Seçiniz</option>
-              {product?.sizes?.map(e => (
-                  <option value={e}>{e}</option>
-              ))}
-            </select>
-          </div>
-          <div className="shareIcons">
-            <img src={FacebookIcon} alt="socialImg" />
-            <img src={TwitterIcon} alt="socialImg" />
-            <img src={InstagramIcon} alt="socialImg" />
-            <img src={WhatsappIcon} alt="socialImg" />
-          </div>
-          <button className="addToCardBtn" onClick={addProduct}>
-            <FontAwesomeIcon icon={faShoppingBag} className="addToCartIcon" />
-            SEPETE EKLE
-          </button>
+          <select className="sizePicker" onChange={(e) => selectSize(e?.target?.value)}>
+            <option value={-1}>Seçiniz</option>
+            {product?.sizes?.map(e => (
+              <option value={e}>{e}</option>
+            ))}
+          </select>
         </div>
+        <div className="shareIcons">
+          <img src={FacebookIcon} alt="socialImg" />
+          <img src={TwitterIcon} alt="socialImg" />
+          <img src={InstagramIcon} alt="socialImg" />
+          <img src={WhatsappIcon} alt="socialImg" />
+        </div>
+        <button className="addToCardBtn" onClick={addProduct}>
+          <FontAwesomeIcon icon={faShoppingBag} className="addToCartIcon" />
+            SEPETE EKLE
+        </button>
       </div>
+    </div>
   );
 };
 

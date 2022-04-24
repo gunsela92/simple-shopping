@@ -1,6 +1,6 @@
 .cartPage-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 75% 1fr;
     margin: 30px auto;
     padding: 20px 30px;
     grid-gap: 20px;
@@ -13,12 +13,16 @@
 
 .cartPage-cartproduct {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr 60px;
     align-items: center;
     justify-items: start;
     margin-top: 15px;
     border: 1px solid gray;
     border-radius: 5px;
+}
+
+.cartPage-cartproduct > svg {
+    grid-column: 5 / span 2;
 }
 
 .cardPage-productSize {
@@ -34,6 +38,7 @@
     border: 1px solid gray;
     border-radius: 5px;
     padding: 15px;
+    font-size: 14px;
 }
 
 .gotoPaymentBtn {
