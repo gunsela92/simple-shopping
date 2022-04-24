@@ -1,3 +1,4 @@
+import React from "react";
 import CalandhaLogo from "../../assets/Calandha-Logo.png";
 import ShopierImage from "../../assets/shopier.jpg";
 import "./aboutUs.css"

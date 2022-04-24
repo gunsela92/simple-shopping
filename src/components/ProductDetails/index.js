@@ -44,7 +44,7 @@ const ProductInformation = ({ product }) => {
           <select className="sizePicker" onChange={(e) => selectSize(e?.target?.value)}>
             <option value={-1}>Seçiniz</option>
             {product?.sizes?.map(e => (
-              <option value={e}>{e}</option>
+              <option value={e} key={e}>{e}</option>
             ))}
           </select>
         </div>

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {products} from "./products";
 import "./productGrid.css";
 import {useDispatch} from "react-redux";
