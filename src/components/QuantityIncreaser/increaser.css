@@ -1,0 +1,33 @@
+.increaser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.productQuantity {
+    padding: 2.5px 3px;
+    white-space: pre-wrap;
+    text-align: center;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+}
+
+.productQuantity > label {
+    font-size: 10px;
+}
+
+.quantityButton {
+    background-color: rgba(190, 190, 190, 0.65);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #666666;
+    padding: 9.5px;
+}
+
+.quantityButton:hover:not(:disabled) {
+    background-color: rgb(190, 190, 190);
+}
